@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .gradient-text {
+        @apply text-transparent bg-clip-text bg-gradient-to-r from-gradient-purple via-gradient-blue to-gradient-pink animate-gradient-shift;
+    }
+
+    .gradient-bg {
+        @apply bg-gradient-to-r from-gradient-purple via-gradient-blue to-gradient-pink animate-gradient-shift;
+    }
+
+    .gradient-bg-radial {
+        @apply bg-gradient-radial from-gradient-purple via-gradient-blue to-gradient-pink animate-gradient-shift;
+    }
+
+    .gradient-border {
+        @apply border-2 border-transparent bg-gradient-to-r from-gradient-purple to-gradient-blue;
+        border-image: linear-gradient(to right, theme('colors.gradient-purple'), theme('colors.gradient-blue')) 1;
+    }
+
+    .gradient-button {
+        @apply bg-gradient-to-r from-gradient-blue to-gradient-pink text-white font-bold py-2 px-4 rounded-md transition-transform hover:scale-105;
+    }
+
+    .gradient-card {
+        @apply bg-dark-bg rounded-lg border-2 border-transparent transition-transform duration-300 hover:shadow-lg hover:scale-105;
+        border-image: linear-gradient(to right, theme('colors.gradient-purple'), theme('colors.gradient-blue')) 1;
+    }
+}
+
+@layer utilities {
+    .font-afacad {
+        font-family: 'Afacad', system-ui, sans-serif;
+    }
+    
+    /* Animation utilities */
+    .animate-blob {
+        animation: blob 7s infinite;
+    }
+    
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+    
+    @keyframes blob {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+        33% {
+            transform: translate(30px, -50px) scale(1.1);
+        }
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+}
+
+/* Add custom scrollbar styles for the deposits container */
+@layer utilities {
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(75, 0, 130, 0.1);
+        border-radius: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #4B0082, #9370DB);
+        border-radius: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #6A0DAD, #B57EDC);
+    }
+}
+
+:root {
+    font-family: 'Afacad', system-ui, sans-serif;
+    background-color: theme('colors.dark-bg');
+    color: rgba(255, 255, 255, 0.9);
+    --gradient-blue: #00B7EB;
+    --gradient-purple: #4B0082;
+    --gradient-pink: #FF69B4;
+    --dark-bg: #1A1A1A;
+}
+
+body {
+    margin: 0;
+    font-family: 'Afacad', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #121212;
+    color: white;
+}
+
+/* Gradient text utility classes */
+.text-gradient-blue {
+    color: var(--gradient-blue);
+}
+
+.text-gradient-purple {
+    color: var(--gradient-purple);
+}
+
+.text-gradient-pink {
+    color: var(--gradient-pink);
+}
+
+/* Gradient button */
+.gradient-button {
+    background: linear-gradient(to right, var(--gradient-blue), var(--gradient-purple));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.gradient-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Style the range input without a visible thumb */
+.slider-input {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Make the thumb completely invisible while keeping functionality */
+.slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.slider-input::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.slider-input:focus {
+    outline: none;
+}
+
+/* Remove default styling for other browsers */
+.slider-input::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
